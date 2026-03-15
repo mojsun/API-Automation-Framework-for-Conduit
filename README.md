@@ -1,6 +1,6 @@
 # Conduit API Automation Framework
 
-A professional **QA API automation project** built with **Python**, **PyTest**, and **Requests** for the [Conduit API](https://conduit-api.bondaracademy.com). This framework demonstrates API test automation best practices: reusable client design, test data management, JSON schema validation, authentication flows, CRUD coverage, and HTML reporting—suitable for portfolios and technical interviews.
+My **QA API automation project** built with **Python**, **PyTest**, and **Requests** for the [Conduit API](https://conduit-api.bondaracademy.com). This framework demonstrates API test automation best practices: reusable client design, test data management, JSON schema validation, authentication flows, CRUD coverage, and HTML reporting—suitable.
 
 ---
 
@@ -130,41 +130,3 @@ pytest -v --tb=short
 pytest --html=report.html --self-contained-html
 ```
 
----
-
-## Framework Design (Interview Talking Points)
-
-- **API client**: Single `ApiClient` class with `get`, `post`, `put`, `delete` and `set_auth_token` so tests stay DRY and easy to read.
-- **Config**: Base URL and thresholds in `config/settings.py` with env overrides via `.env`.
-- **Fixtures**: `auth_client` registers a user, logs in, and sets the token; `test_user` exposes email/username/password for login and negative tests.
-- **Test data**: `payload_register_user()`, `payload_login()`, `payload_create_article()` in `utils/test_data.py`; unique emails/usernames via `utils/helpers.py` to avoid duplicate-user failures.
-- **Assertions**: Centralized in `utils/assertions.py` (status code, keys, jsonschema, response time) with clear failure messages.
-- **Schemas**: JSON schemas in `schemas/` validate response structure and catch breaking API changes.
-
----
-
-## Future Improvements
-
-- Add tests for **comments**, **favorites**, and **feed** endpoints
-- Add **allure** or **pytest-html** with screenshots for failure debugging
-- **Data-driven tests** via `pytest.mark.parametrize` for multiple payloads
-- **Docker** image to run the suite in CI without local Python setup
-- **Retries** for flaky endpoints (e.g. with `pytest-rerunfailures`)
-
----
-
-## Why This Project Works for QA Portfolios and Interviews
-
-- **Real API**: Uses a public Conduit API, so anyone can run the tests without internal access.
-- **Clean structure**: Clear separation of client, config, test data, assertions, and schemas—easy to walk through in an interview.
-- **Best practices**: Auth handling, schema validation, negative tests, and markers show awareness of maintainability and CI.
-- **Runnable and CI-ready**: One `pip install` and `pytest` command; GitHub Actions workflow demonstrates automation in a pipeline.
-
----
-
-## Resume-Ready Bullet Points
-
-- **Designed and implemented** an API test automation framework in Python using PyTest and Requests for the Conduit API, covering authentication, user registration, and full articles CRUD with reusable client and fixtures.
-- **Added JSON schema validation** for user and article responses to ensure contract compliance and catch breaking changes; integrated response time checks on critical endpoints.
-- **Built negative and error-path tests** (unauthorized access, invalid payloads, wrong credentials) and centralized assertions with clear failure messages to improve debugging.
-- **Configured pytest-html reporting and PyTest markers** (smoke, regression, negative) for selective runs and CI-friendly execution; set up GitHub Actions workflow for automated test execution.
