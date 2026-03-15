@@ -32,6 +32,13 @@ This project automates testing of the public Conduit API (RealWorld-style). It i
 
 ---
 
+## Test Execution Report
+
+Example HTML report generated using pytest-html.
+
+![API Test Report](docs/report-screenshot.png)
+
+
 ## Project Structure
 
 ```
